@@ -27,7 +27,7 @@ begin
 
 
 		when others =>
-		return 0.0;
+		return 0.1;
 
 	end case;
 
