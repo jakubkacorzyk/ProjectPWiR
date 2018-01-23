@@ -1,0 +1,124 @@
+V "GNAT Lib v5"
+M P W=b
+P SS ZX
+
+RN
+RV NO_DELAY
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_FIXED_POINT
+RV NO_IO
+RV NO_IMPLICIT_DYNAMIC_CODE
+RV NO_RELATIVE_DELAY
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_TASK_HIERARCHY
+RV NO_TASKING
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_ATTRIBUTES
+RV SPARK_05
+RV MAX_TASK_ENTRIES=1
+RV MAX_TASKS=1+
+
+U pralnia%b		pralnia.adb		52bc70dd NE OO SU IL
+W ada%s			ada.ads			ada.ali
+W ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
+W ada.real_time%s	a-reatim.adb		a-reatim.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.task_identification%s  a-taside.adb	a-taside.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W system%s		system.ads		system.ali
+W system.concat_2%s	s-conca2.adb		s-conca2.ali
+W system.concat_4%s	s-conca4.adb		s-conca4.ali
+W system.img_int%s	s-imgint.adb		s-imgint.ali
+W system.img_lld%s	s-imglld.adb		s-imglld.ali
+W system.parameters%s	s-parame.adb		s-parame.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.task_info%s	s-tasinf.adb		s-tasinf.ali
+W system.tasking%s	s-taskin.adb		s-taskin.ali
+W system.tasking.rendezvous%s  s-tasren.adb	s-tasren.ali
+W system.tasking.stages%s  s-tassta.adb		s-tassta.ali
+W system.val_int%s	s-valint.adb		s-valint.ali
+
+D ada.ads		20070406091342 3ffc8e18 ada%s
+D a-calend.ads		20141120112812 d986d312 ada.calendar%s
+D a-caldel.ads		20140120152337 9f20b83d ada.calendar.delays%s
+D a-except.ads		20140730140058 5250cb69 ada.exceptions%s
+D a-finali.ads		20140611123707 69f99942 ada.finalization%s
+D a-ioexce.ads		20140225151544 e4a01f64 ada.io_exceptions%s
+D a-reatim.ads		20141120112812 02069903 ada.real_time%s
+D a-stream.ads		20141120112812 119b8fb3 ada.streams%s
+D a-tags.ads		20140730140058 dc4d0634 ada.tags%s
+D a-taside.ads		20140611123156 9a31e556 ada.task_identification%s
+D a-textio.ads		20140717063745 386df5d4 ada.text_io%s
+D a-unccon.ads		20070406091342 f9eb8f06 ada.unchecked_conversion%s
+D interfac.ads		20141120112812 6033a23f interfaces%s
+D i-c.ads		20110801143639 5421119b interfaces.c%s
+D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
+D pralnia.adb		20180123172928 f0e0605f pralnia%b
+D system.ads		20141031112219 1d274481 system%s
+D s-atacco.ads		20120515093410 4c36d12f system.address_to_access_conversions%s
+D s-conca2.ads		20140225151544 02a0d7d0 system.concat_2%s
+D s-conca4.ads		20140225151544 7e642b20 system.concat_4%s
+D s-crtl.ads		20141120112812 0ebbdb71 system.crtl%s
+D s-exctab.ads		20140225151139 54135002 system.exception_table%s
+D s-ficobl.ads		20140718105747 078245e4 system.file_control_block%s
+D s-finroo.ads		20120426095924 4ff27390 system.finalization_root%s
+D s-imgint.ads		20090409150019 02dbe0c2 system.img_int%s
+D s-imglld.ads		20090409150019 f3220969 system.img_lld%s
+D s-linux.ads		20150107101203 2fda6ad1 system.linux%s
+D s-multip.ads		20101011073009 38ac9f73 system.multiprocessors%s
+D s-oscons.ads		20170913220241 4bd50652 system.os_constants%s
+D s-osinte.ads		20150107101203 e9e28195 system.os_interface%s
+D s-parame.ads		20140801093848 7e2a0d7f system.parameters%s
+D s-secsta.ads		20140225151139 86a2856d system.secondary_stack%s
+D s-soflin.ads		20140801100131 aa763b52 system.soft_links%s
+D s-stache.ads		20140225151139 a37c21ec system.stack_checking%s
+D s-stausa.ads		20110804134155 017a0a05 system.stack_usage%s
+D s-stalib.ads		20150220094550 fa0a3617 system.standard_library%s
+D s-stoele.ads		20140225151139 2dc34a04 system.storage_elements%s
+D s-tasinf.ads		20140613095942 2b3f8252 system.task_info%s
+D s-taspri.ads		20141120144719 e3ab4429 system.task_primitives%s
+D s-taprop.ads		20140521131406 1dd2e1b6 system.task_primitives.operations%s
+D s-taskin.ads		20150106085750 339749f0 system.tasking%s
+D s-taprob.ads		20110927094500 502249e3 system.tasking.protected_objects%s
+D s-tpoben.ads		20121029113218 b641f948 system.tasking.protected_objects.entries%s
+D s-tasren.ads		20120208100446 a67a9949 system.tasking.rendezvous%s
+D s-tassta.ads		20121029110946 70812003 system.tasking.stages%s
+D s-traent.ads		20140730135025 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20140731130224 9d58a4c0 system.unsigned_types%s
+D s-valint.ads		20090409150019 48a52a3f system.val_int%s
+D s-wchcon.ads		20140718092328 1b7d22d2 system.wch_con%s
+X 1 ada.ads
+16K9*Ada 19e8 16|1r6 2r6 3r6 4r5
+X 10 a-taside.ads
+39K13*Task_Identification 77e28 16|3w10 4r9
+43P9*Task_Id<41|109P9>
+53V13*Current_Task{43P9} 16|23s52 26s52
+59U14*Abort_Task 16|23s41 26s41
+X 11 a-textio.ads
+49K13*Text_IO 471e16 16|1w10 2r10
+166U14*New_Line 16|37s17 45s17
+242U14*Put 16|42s25
+256V13*Get_Line{string} 16|47s40
+263U14*Put_Line 16|21s41 25s41 38s17 39s17 46s17
+X 16 pralnia.adb
+6U11*pralnia 6b11 51l5 51t12
+8A14 ListaPralek(boolean)<integer> 9r24
+9a9 lista_pralek{8A14} 19r36 20m41 33r18 34m17 40r26 41r28
+10i9 numer{integer} 47m17 48r31
+11t14 Program 15b15 29l13 29t20 48r17
+12Y23 pierz 12>29 12>54 17b24 28l29 28t34 48s25
+12i29 id_pralki{integer} 19r49 20r54 21r90
+12o54 czas_programu{duration} 21r149 22r47
+17i30 id_pralki{integer}
+17o55 czas_programu{duration}
+33i13 i{integer} 34r30
+40i21 i{integer} 41r41 42r33
+X 35 s-stausa.ads
+203U14*Initialize 204i<c,__gnat_stack_usage_initialize>22
+268U14*Output_Results 272i<c,__gnat_stack_usage_output_results>22
+X 41 s-taskin.ads
+109P9*Task_Id(107R9)
+
