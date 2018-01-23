@@ -20,12 +20,16 @@ procedure pralnia is
 	
     task body P is 
 	begin
+		loop
 		accept pierz(id_pralki : in integer ; czas_programu : duration) 
 			do
+					
 					Put_Line("Rozpoczynam pranie w pralce numer :" & id_pralki'Img & " czas wybranego programu to programu :" & czas_programu'Img);
 					delay(czas_programu);
 					lista_pralek(id_pralki) := False;
+					
 			end pierz;
+		end loop;
 	end P;
 	
 	
@@ -54,11 +58,12 @@ begin
 		Put_Line("Wybierz dostępną pralkę : ");
 		numer := Integer'Value(Get_Line);
 		
-		if lista_pralek(numer) = False then
+		if (lista_pralek(numer) = False and numer <= 10 and numer >= 1) then
 			lista_pralek(numer) := True;
-			Arr(numer).pierz(numer,0.1);
+			Arr(numer).pierz(numer,2.0);
 		else 
-			Put_Line("Pralka zajęta. Spróbuj wybrać inną pralkę");
+			Put_Line("Pralka zajęta lub wybrano zly numer. Spróbuj wybrać inną pralkę");
+			delay(1.0);
 		end if;
 	end loop;
 	
