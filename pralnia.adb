@@ -1,10 +1,13 @@
 with Ada.Text_IO;
 use  Ada.Text_IO;
 
+
 with ListaPralek;
 with Programy;
 with Pralki;
 use Pralki;
+with Klient;
+use Klient;
 
 procedure pralnia is
 
@@ -13,15 +16,19 @@ procedure pralnia is
 	X : Integer := 10;
 	type P is access Pralka;
 	type My_Arr is array (Integer range <>) of P;
-	
+
+
 	Arr : My_Arr(1..10);
-	
+
+
 
 begin
 	for i in 1..10 loop
 		ListaPralek.set(i,False);
 		Arr(i) := new Pralka(i);
 	end loop;
+
+
 	
 	loop
 		New_Line(24);
@@ -45,7 +52,7 @@ begin
 				end loop;
 				numer_programu := Integer'Value(Get_Line);
 				ListaPralek.set(numer,True);
-				Arr(numer).pierz(numer_programu,Programy.get_Time(numer_programu));
+				Arr(numer).pierz(numer,Programy.get_Time(numer_programu));
 			else
 			Put_Line("Pralka zajęta");
 			delay(1.0);
