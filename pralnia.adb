@@ -19,16 +19,24 @@ procedure pralnia is
 	type My_Arr is array (Integer range <>) of Program;
 	
     task body P is 
+	typ : integer := 0;
+	c_programu : duration;
+	id_p : integer;
 	begin
 		loop
 		accept pierz(id_pralki : in integer ; czas_programu : duration) 
 			do
-					
+					typ:=1;
+					c_programu := czas_programu;
+					id_p :=id_pralki;
 					Put_Line("Rozpoczynam pranie w pralce numer :" & id_pralki'Img & " czas wybranego programu to programu :" & czas_programu'Img);
-					delay(czas_programu);
-					lista_pralek(id_pralki) := False;
 					
 			end pierz;
+			if(typ = 1) then
+			delay(c_programu);
+			lista_pralek(id_p) := False;
+			typ :=0;
+			end if;
 		end loop;
 	end P;
 	
