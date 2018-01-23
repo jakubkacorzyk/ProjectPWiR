@@ -8,28 +8,23 @@ procedure pralnia is
 	type ListaPralek is array (Positive range <>) of Boolean;
 	lista_pralek : ListaPralek(1..10);
 	numer : Integer;
-	X : Integer := 1;
+	X : Integer := 10;
 	
-	task type P is 
+	task type P (Param : Integer) is 
 		entry pierz(id_pralki : in integer ; czas_programu : duration);
 	end P;
 	
 	type Program is access P;
+	
 	type My_Arr is array (Integer range <>) of Program;
 	
     task body P is 
 	begin
 		accept pierz(id_pralki : in integer ; czas_programu : duration) 
 			do
-				if lista_pralek(id_pralki) = False then 
-					lista_pralek(id_pralki) := True;
 					Put_Line("Rozpoczynam pranie w pralce numer :" & id_pralki'Img & " czas wybranego programu to programu :" & czas_programu'Img);
 					delay(czas_programu);
-					Abort_Task(Current_Task);
-				else 
-					Put_Line("Pralka zajęta. Spróbuj wybrać inną pralkę");
-					Abort_Task(Current_Task);
-				end if;
+					lista_pralek(id_pralki) := False;
 			end pierz;
 	end P;
 	
@@ -37,11 +32,13 @@ procedure pralnia is
 	
 	
 	
-	Arr : My_Arr (1 .. 10);
+	Arr : My_Arr(1..10);
+	
+
 begin
 	for i in lista_pralek'Range loop
 		lista_pralek(i) := False;
-		Arr(i) := new Program();
+		Arr(i) := new P(i);
 	end loop;
 	
 	loop
@@ -56,7 +53,13 @@ begin
 		New_Line(2);
 		Put_Line("Wybierz dostępną pralkę : ");
 		numer := Integer'Value(Get_Line);
-		Arr(numer).pierz(numer,0.1);
+		
+		if lista_pralek(numer) = False then
+			lista_pralek(numer) := True;
+			Arr(numer).pierz(numer,0.1);
+		else 
+			Put_Line("Pralka zajęta. Spróbuj wybrać inną pralkę");
+		end if;
 	end loop;
 	
 end Pralnia;

@@ -3,15 +3,20 @@ M P W=b
 P SS ZX
 
 RN
+RV NO_ALLOCATORS
 RV NO_DELAY
 RV NO_EXCEPTION_HANDLERS
 RV NO_EXCEPTIONS
 RV NO_FIXED_POINT
 RV NO_IO
 RV NO_IMPLICIT_DYNAMIC_CODE
+RV NO_IMPLICIT_LOOPS
+RV NO_LOCAL_ALLOCATORS
 RV NO_RELATIVE_DELAY
 RV NO_SECONDARY_STACK
+RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
 RV NO_STANDARD_STORAGE_POOLS
+RV NO_TASK_ALLOCATORS
 RV NO_TASK_HIERARCHY
 RV NO_TASKING
 RV NO_DEFAULT_INITIALIZATION
@@ -20,7 +25,7 @@ RV SPARK_05
 RV MAX_TASK_ENTRIES=1
 RV MAX_TASKS=1+
 
-U pralnia%b		pralnia.adb		52bc70dd NE OO SU IL
+U pralnia%b		pralnia.adb		76cd8d35 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
 W ada.real_time%s	a-reatim.adb		a-reatim.ali
@@ -56,7 +61,7 @@ D a-unccon.ads		20070406091342 f9eb8f06 ada.unchecked_conversion%s
 D interfac.ads		20141120112812 6033a23f interfaces%s
 D i-c.ads		20110801143639 5421119b interfaces.c%s
 D i-cstrea.ads		20140801100435 e53d8b8e interfaces.c_streams%s
-D pralnia.adb		20180123172928 f0e0605f pralnia%b
+D pralnia.adb		20180123181908 d4919db7 pralnia%b
 D system.ads		20141031112219 1d274481 system%s
 D s-atacco.ads		20120515093410 4c36d12f system.address_to_access_conversions%s
 D s-conca2.ads		20140225151544 02a0d7d0 system.concat_2%s
@@ -94,31 +99,31 @@ X 1 ada.ads
 16K9*Ada 19e8 16|1r6 2r6 3r6 4r5
 X 10 a-taside.ads
 39K13*Task_Identification 77e28 16|3w10 4r9
-43P9*Task_Id<41|109P9>
-53V13*Current_Task{43P9} 16|23s52 26s52
-59U14*Abort_Task 16|23s41 26s41
 X 11 a-textio.ads
 49K13*Text_IO 471e16 16|1w10 2r10
-166U14*New_Line 16|37s17 45s17
-242U14*Put 16|42s25
-256V13*Get_Line{string} 16|47s40
-263U14*Put_Line 16|21s41 25s41 38s17 39s17 46s17
+166U14*New_Line 16|45s17 53s17
+242U14*Put 16|50s25
+256V13*Get_Line{string} 16|55s40
+263U14*Put_Line 16|25s41 46s17 47s17 54s17 61s25
 X 16 pralnia.adb
-6U11*pralnia 6b11 51l5 51t12
+6U11*pralnia 6b11 65l5 65t12
 8A14 ListaPralek(boolean)<integer> 9r24
-9a9 lista_pralek{8A14} 19r36 20m41 33r18 34m17 40r26 41r28
-10i9 numer{integer} 47m17 48r31
-11t14 Program 15b15 29l13 29t20 48r17
-12Y23 pierz 12>29 12>54 17b24 28l29 28t34 48s25
-12i29 id_pralki{integer} 19r49 20r54 21r90
-12o54 czas_programu{duration} 21r149 22r47
-17i30 id_pralki{integer}
-17o55 czas_programu{duration}
-33i13 i{integer} 34r30
-40i21 i{integer} 41r41 42r33
+9a9 lista_pralek{8A14} 27m41 39r18 40m17 48r26 49r28 57r20 58m25
+10i9 numer{integer} 55m17 57r33 58r38 59r29 59r42
+11i9 X{integer}
+13T19 P 13d22 15l13 15e14 17r32 21b15 29l13 29t14 41r31
+13i22 Param{integer}
+14Y23 pierz 14>29 14>54 23b24 28l29 28t34 59s36
+14i29 id_pralki{integer} 25r90 27r54
+14o54 czas_programu{duration} 25r149 26r47
+17P14 Program(13T19) 19r52
+19A14 My_Arr(17P14)<integer> 35r15
+23i30 id_pralki{integer}
+23o55 czas_programu{duration}
+35a9 Arr{19A14} 41m17 59r25
+39i13 i{integer} 40r30 41r21 41r33
+48i21 i{integer} 49r41 50r33
 X 35 s-stausa.ads
 203U14*Initialize 204i<c,__gnat_stack_usage_initialize>22
 268U14*Output_Results 272i<c,__gnat_stack_usage_output_results>22
-X 41 s-taskin.ads
-109P9*Task_Id(107R9)
 
