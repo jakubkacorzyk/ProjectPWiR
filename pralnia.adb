@@ -8,11 +8,16 @@ procedure pralnia is
 	type ListaPralek is array (Positive range <>) of Boolean;
 	lista_pralek : ListaPralek(1..10);
 	numer : Integer;
-	task Program is 
+	X : Integer := 1;
+	
+	task type P is 
 		entry pierz(id_pralki : in integer ; czas_programu : duration);
-	end Program;
-			
-    task body Program is 
+	end P;
+	
+	type Program is access P;
+	type My_Arr is array (Integer range <>) of Program;
+	
+    task body P is 
 	begin
 		accept pierz(id_pralki : in integer ; czas_programu : duration) 
 			do
@@ -26,13 +31,19 @@ procedure pralnia is
 					Abort_Task(Current_Task);
 				end if;
 			end pierz;
-	end Program;
+	end P;
 	
-     
+	
+	
+	
+	
+	Arr : My_Arr (1 .. 10);
 begin
 	for i in lista_pralek'Range loop
 		lista_pralek(i) := False;
+		Arr(i) := new Program();
 	end loop;
+	
 	loop
 		New_Line(24);
 		Put_Line("Witaj w naszej pralni");
@@ -45,7 +56,7 @@ begin
 		New_Line(2);
 		Put_Line("Wybierz dostępną pralkę : ");
 		numer := Integer'Value(Get_Line);
-		Program.pierz(numer,0.1);	
+		Arr(numer).pierz(numer,0.1);
 	end loop;
 	
 end Pralnia;
