@@ -1,6 +1,7 @@
 with Ada.Text_IO;
 use  Ada.Text_IO;
-
+with Ada.Task_Identification;
+use Ada.Task_Identification;
 
 with ListaPralek;
 with Programy;
@@ -11,6 +12,7 @@ use Klient;
 
 procedure pralnia is
 
+	tryb : Integer;
 	numer : Integer;
 	numer_programu : Integer;
 	X : Integer := 10;
@@ -27,13 +29,27 @@ begin
 		ListaPralek.set(i,False);
 		Arr(i) := new Pralka(i);
 	end loop;
-
-
-	
 	loop
-		New_Line(24);
+	Ada.Text_IO.Put(ASCII.ESC & "[2J");
+	Put_Line(" _____  _____            _      _   _ _____           ");    
+	Put_Line("|  __ \|  __ \     /\   | |    | \ | |_   _|   /\     ");    
+	Put_Line("| |__) | |__) |   /  \  | |    |  \| | | |    /  \    ");
+	Put_Line("|  ___/|  _  /   / /\ \ | |    | . ` | | |   / /\ \   ");
+	Put_Line("| |    | | \ \  / ____ \| |____| |\  |_| |_ / ____ \  ");
+	Put_Line("|_|    |_|  \_\/_/    \_\______|_| \_|_____/_/    \_\ ");
+	Put_Line("-------------------------------------------------------");
+	Put_Line("Wybierz tryb :");
+	Put_Line("1 - tryb reczny");
+	Put_Line("2 - tryb automatyczny");
+	Put_Line("0 - EXIT");
+	tryb := Integer'Value(Get_Line);
+	if tryb = 0 then  Abort_Task (Current_Task);
+	elsif tryb = 1 then 
+	loop
+		Ada.Text_IO.Put(ASCII.ESC & "[2J");
 		Put_Line("Witaj w naszej pralni");
-		Put_Line("Dostępne numery pralek to :");
+		Put_Line("---------------------");
+		Put_Line("Dostępne numery pralek to :");         
 		for i in 1..10 loop
 			if(ListaPralek.get(i) = false) then
 			Put(" "&i'Img);
@@ -42,7 +58,6 @@ begin
 		New_Line(2);
 		Put_Line("Wybierz dostępną pralkę : ");
 		numer := Integer'Value(Get_Line);
-		
 		
 		if (numer <= 10 and numer >= 1) then
 			if (ListaPralek.get(numer) = False) then
@@ -62,5 +77,36 @@ begin
 			delay(1.0);
 		end if;
 	end loop;
-	
+	elsif (tryb = 2) then
+		loop
+			Ada.Text_IO.Put(ASCII.ESC & "[2J");
+			Put_Line("Dostępne numery pralek to :");         
+			for i in 1..10 loop
+				if(ListaPralek.get(i) = false) then
+				Put(" "&i'Img);
+				end if;
+			end loop;
+			
+			for i in 1..10 loop 
+				if(listaPralek.get(i) = false) then
+					Ada.Text_IO.Put(ASCII.ESC & "[2J");
+					ListaPralek.set(i,True);
+					Put_Line("Wybrano pralkę : " & i'IMG);
+					Put_Line("--------------------------");
+					Arr(i).pierz(i,Programy.get_Time(Klient.getProgram));
+					Put_Line("Dostępne numery pralek to :");         
+					for i in 1..10 loop
+						if(ListaPralek.get(i) = false) then
+						Put(" "&i'Img);
+						end if;
+					end loop;
+				end if;
+					delay(1.0);
+			end loop;		
+					
+		end loop;
+	else Put_Line("Nie ma trybu o takim numerze !");
+	end if;
+end loop;
+
 end Pralnia;
