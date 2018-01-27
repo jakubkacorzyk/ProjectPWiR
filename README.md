@@ -1,11 +1,13 @@
 # ProjectPWiR
 Projekt zaliczeniowy z przedmiotu Programowanie Współbieżne i Rozproszone
 
+Kompilacja i uruchamianie : (z folderu w którym znajduje się pliki)
+
 Kompilacja :
 gnatmake pralnia.adb
  
 Uruchamianie :
-./pralnia (z folderu w którym znajduje się plik "pralnia")
+./pralnia 
 
 Menu :
 1. Wybór ręczny - wpisywanie numeru pralki oraz programu, jaki chcemy użyć w konsolę.
