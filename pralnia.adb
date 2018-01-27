@@ -11,7 +11,8 @@ with Klient;
 use Klient;
 
 procedure pralnia is
-
+   
+	licznik : Integer;
 	tryb : Integer;
 	numer : Integer;
 	numer_programu : Integer;
@@ -56,9 +57,10 @@ begin
 			end if;
 		end loop;
 		New_Line(2);
-		Put_Line("Wybierz dostępną pralkę : ");
+		Put_Line("Wybierz dostępną pralkę (lub wroc do menu = 0): ");
 		numer := Integer'Value(Get_Line);
-		
+		if numer = 0 then exit;
+		end if;
 		if (numer <= 10 and numer >= 1) then
 			if (ListaPralek.get(numer) = False) then
 				Put_Line("Wybierz program : ");
@@ -73,11 +75,12 @@ begin
 			delay(1.0);
 			end if;
 		else 
-			Put_Line("Wybrano zly numer. Spróbuj wybrać inną pralkę");
+			Put_Line("Wybrano zly numer. Spróbuj wybrać inną pralkę. menu = 0");
 			delay(1.0);
 		end if;
 	end loop;
 	elsif (tryb = 2) then
+		licznik := 0;
 		loop
 			Ada.Text_IO.Put(ASCII.ESC & "[2J");
 			Put_Line("Dostępne numery pralek to :");         
@@ -100,8 +103,9 @@ begin
 						Put(" "&i'Img);
 						end if;
 					end loop;
+					Put_Line("");
 				end if;
-					delay(1.0);
+				delay(1.0);
 			end loop;		
 					
 		end loop;
