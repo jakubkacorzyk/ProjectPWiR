@@ -104,8 +104,8 @@ begin
 						end if;
 					end loop;
 					Put_Line("");
+					delay(1.0);
 				end if;
-				delay(1.0);
 			end loop;		
 					
 		end loop;
